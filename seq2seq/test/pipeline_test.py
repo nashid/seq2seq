@@ -39,12 +39,13 @@ BIN_FOLDER = os.path.abspath(
 
 """
 def _clear_flags():
-  """Resets Tensorflow's FLAG values"""
+  #Resets Tensorflow's FLAG values
   #pylint: disable=W0212
   tf.app.flags.FLAGS = tf.app.flags._FlagValues()
   tf.app.flags._global_parser = argparse.ArgumentParser()
 """
 
+# https://github.com/google/seq2seq/issues/316
 def _clear_flags():
     """Resets Tensorflow's FLAG values"""
     #pylint: disable=W0212
