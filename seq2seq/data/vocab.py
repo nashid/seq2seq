@@ -85,6 +85,12 @@ def create_vocabulary_lookup_table(filename, default_value=None):
   has_counts = len(vocab[0].split("\t")) == 2
   if has_counts:
     vocab, counts = zip(*[_.split("\t") for _ in vocab])
+    for count in counts:
+      try:
+        x = float(count)
+      except ValueError as ve:
+        print(ve)
+        print(count)
     counts = [float(_) for _ in counts]
     vocab = list(vocab)
   else:
